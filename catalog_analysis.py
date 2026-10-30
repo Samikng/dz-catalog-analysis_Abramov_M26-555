@@ -2,84 +2,84 @@ import math
 
 movies = [
     {
-        "title": "Иван Васильевич меняет профессию",
-        "year": 1973,
-        "genres": {"comedy", "sci-fi"},
-        "rating": 8.8,
-        "duration_min": 88,
-        "actors": ["Ю. Яковлев", "Л. Куравлев", "А. Демьяненко"],
+        "title": "The Dune Chronicles",
+        "year": 2021,
+        "genres": {"sci-fi", "drama"},
+        "rating": 8.6,
+        "duration_min": 155,
+        "actors": ["T. Chalamet", "R. Ferguson", "O. Isaac"],
     },
     {
-        "title": "брат",
-        "year": 1997,
-        "genres": {"crime", "drama"},
-        "rating": 8.3,
-        "duration_min": 100,
-        "actors": ["С. Бодров", "В. Сухоруков"],
-    },
-    {
-        "title": "Брат 2",
-        "year": 2000,
-        "genres": {"crime", "drama"},
-        "rating": 8.2,
-        "duration_min": 127,
-        "actors": ["С. Бодров", "В. Сухоруков", "С. Маковецкий"],
-    },
-    {
-        "title": "бриллиантовая рука",
-        "year": 1968,
-        "genres": {"comedy", "crime"},
-        "rating": 8.5,
-        "duration_min": 100,
-        "actors": ["Ю. Никулин", "А. Миронов", "А. Папанов"],
-    },
-    {
-        "title": "Москва слезам не верит",
-        "year": 1979,
-        "genres": {"drama"},
-        "rating": 8.3,
-        "duration_min": 150,
-        "actors": ["В. Алентова", "А. Баталов", "И. Муравьева"],
-    },
-    {
-        "title": "Легенда №17",
-        "year": 2012,
-        "genres": {"drama", "sport"},
-        "rating": 8.0,
-        "duration_min": 134,
-        "actors": ["Д. Козловский", "О. Меньшиков"],
-    },
-    {
-        "title": "Движение вверх",
-        "year": 2017,
-        "genres": {"drama", "sport"},
-        "rating": 7.5,
-        "duration_min": 133,
-        "actors": ["В. Машков", "К. Зайцев", "И. Колесников"],
-    },
-    {
-        "title": "холоп",
+        "title": "Kitchen Stories",
         "year": 2019,
-        "genres": {"comedy"},
-        "rating": 7.1,
-        "duration_min": 109,
-        "actors": ["М. Бикович", "А. Бортич", "И. Охлобыстин"],
-    },
-    {
-        "title": "Ирония судьбы",
-        "year": 1975,
         "genres": {"comedy", "drama"},
-        "rating": 8.2,
-        "duration_min": 184,
-        "actors": ["А. Мягков", "Б. Брыльска", "Ю. Яковлев"],
+        "rating": 7.1,
+        "duration_min": 98,
+        "actors": ["A. Novak", "M. Ferguson"],
     },
     {
-        "title": "девятая рота",
-        "year": 2005,
-        "genres": {"drama", "war"},
-        "rating": 7.7,
-        "duration_min": 133,
-        "actors": ["Ф. Бондарчук", "А. Чадов", "А. Смольянинов"],
+        "title": "silent hours",
+        "year": 2016,
+        "genres": {"thriller", "drama"},
+        "rating": 6.4,
+        "duration_min": 112,
+        "actors": ["J. Bloom", "K. Lee"],
+    },
+    {
+        "title": "Comet Racers",
+        "year": 2023,
+        "genres": {"sci-fi", "action"},
+        "rating": 5.9,
+        "duration_min": 101,
+        "actors": ["O. Isaac", "P. Diaz"],
+    },
+    {
+        "title": "The Last Bakery",
+        "year": 2014,
+        "genres": {"comedy"},
+        "rating": 7.8,
+        "duration_min": 89,
+        "actors": ["A. Novak", "T. Chalamet"],
+    },
+    {
+        "title": "midnight in oslo",
+        "year": 2020,
+        "genres": {"thriller", "mystery"},
+        "rating": 8.9,
+        "duration_min": 124,
+        "actors": ["K. Lee", "R. Ferguson"],
+    },
+    {
+        "title": "Garden of Static",
+        "year": 2022,
+        "genres": {"drama"},
+        "rating": 4.8,
+        "duration_min": 137,
+        "actors": ["P. Diaz", "J. Bloom"],
+    },
+    {
+        "title": "The Quiet Algorithm",
+        "year": 2024,
+        "genres": {"sci-fi", "drama"},
+        "rating": 9.2,
+        "duration_min": 118,
+        "actors": ["M. Ferguson", "O. Isaac"],
+    },
+    {
+        "title": "Two Left Shoes",
+        "year": 2011,
+        "genres": {"comedy"},
+        "rating": 6.0,
+        "duration_min": 95,
+        "actors": ["A. Novak", "K. Lee"],
+    },
+    {
+        "title": "Red Harbor",
+        "year": 2018,
+        "genres": {"action", "thriller"},
+        "rating": 7.3,
+        "duration_min": 129,
+        "actors": ["P. Diaz", "T. Chalamet"],
     },
 ]
 
@@ -255,5 +255,32 @@ def build_report(movies):
     genres_line = ", ".join(sorted(all_genres(movies)))
     print(f"Все жанры каталога: {genres_line}")
 
+
+def show_demos(movies):
+    print("Фильмы не из жанра comedy:")
+    print_non_comedy_titles(movies)
+
+    print()
+    print("Первый фильм с рейтингом выше 9.0:")
+    find_first_masterpiece(movies)
+
+    print()
+    print("Поиск среди первых трех фильмов, где таких нет:")
+    find_first_masterpiece(movies[:3])
+
+    print()
+    print(f"Фильмов длиннее 120 минут: {count_long_movies(movies)}")
+
+    print()
+    print("Фильмы с рейтингом от 8.0:")
+    print_high_rated(movies)
+
+    print()
+    total_duration = total_high_rated_duration(movies)
+    print(f"Суммарная длительность фильмов с рейтингом выше 7: {total_duration} мин")
+
+
 if __name__ == "__main__":
+    show_demos(movies)
+    print()
     build_report(movies)
